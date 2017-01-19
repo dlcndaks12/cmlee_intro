@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+#container {
+    padding: 30px;
+}
+
+.card-container {
+    > ul {
+        > li {
+            
+
+            a {
+                display: block;
+            }
+
+            .thumb {
+                display: block;
+                overflow: hidden;
+                position: relative;
+                height: 300px;
+
+                img {
+                    @include alignXY;
+                }
+            }
+
+            .desc {
+                display: block;
+                margin-top: 10px;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+    }
+}
