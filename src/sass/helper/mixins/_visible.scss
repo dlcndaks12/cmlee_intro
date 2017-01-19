@@ -1,0 +1,7 @@
+@mixin visible {
+    overflow: auto;
+    visibility: visible;
+    position: static;
+    top: 0;
+    left: 0;
+}
