@@ -5,31 +5,30 @@
 }
 
 .card-container {
-    > ul {
-        > li {
-            
+    position: relative;
 
-            a {
-                display: block;
+    > li {
+        width: 350px;
+
+        a {
+            display: block;
+        }
+
+        .thumb {
+            display: block;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                width: 100%;
             }
+        }
 
-            .thumb {
-                display: block;
-                overflow: hidden;
-                position: relative;
-                height: 300px;
-
-                img {
-                    @include alignXY;
-                }
-            }
-
-            .desc {
-                display: block;
-                margin-top: 10px;
-                color: #fff;
-                font-size: 16px;
-            }
+        .desc {
+            display: block;
+            margin-top: 10px;
+            color: #fff;
+            font-size: 16px;
         }
     }
 }

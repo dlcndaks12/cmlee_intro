@@ -13,18 +13,58 @@
     <script src="../js/lib/jquery-3.1.1.min.js"></script>
     <script src="../js/lib/jquery-ui.min.js"></script>
     <script src="../js/lib/slick.min.js"></script>
+    <script src="../js/lcm.cardUp.js"></script>
     <script src="../js/layout.js"></script>
     <script src="../js/component.js"></script>
-
+    <script>
+        $(window).on("load", function() {
+            $('.card-container').cardUp({
+                itemWidth: 350,
+                gutterX: 30
+            });
+        });
+    </script>
 </head>
 <body>
 
 <div id="container">
-    <div class="card-container">
-        <ul>
+    <div class="contents">
+        <ul class="card-container">
             <li>
                 <a href="#">
-                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/400x600" alt=""></span>
+                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/350x300" alt=""></span>
+                    <span class="desc">
+                    설명글입니다.
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/350x200" alt=""></span>
+                    <span class="desc">
+                    설명글입니다.
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/350x310" alt=""></span>
+                    <span class="desc">
+                    설명글입니다.
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/350x250" alt=""></span>
+                    <span class="desc">
+                    설명글입니다.
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="thumb"><img src="https://source.unsplash.com/category/nature/350x400" alt=""></span>
                     <span class="desc">
                     설명글입니다.
                 </span>
