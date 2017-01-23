@@ -4,29 +4,29 @@
     font-family: 'NotoSans';
     font-style: normal;
     font-weight: 400;
-    src: url(../../fonts/notokr-regular.eot);
-    src: url(../../fonts/notokr-regular.eot?#iefix) format('embedded-opentype'),
-    url(../../fonts/notokr-regular.woff2) format('woff2'),
-    url(../../fonts/notokr-regular.woff) format('woff'),
-    url(../../fonts/notokr-regular.ttf) format('truetype');
+    src: url("#{$font-path}/notokr-regular.eot");
+    src: url("#{$font-path}/notokr-regular.eot?#iefix") format('embedded-opentype'),
+    url("#{$font-path}/notokr-regular.woff2") format('woff2'),
+    url("#{$font-path}/notokr-regular.woff") format('woff'),
+    url("#{$font-path}/notokr-regular.ttf") format('truetype');
 }
 @font-face {
     font-family: 'NotoSans';
     font-style: normal;
     font-weight: 600;
-    src: url(../../fonts/notokr-medium.eot);
-    src: url(../../fonts/notokr-medium.eot?#iefix) format('embedded-opentype'),
-    url(../../fonts/notokr-medium.woff2) format('woff2'),
-    url(../../fonts/notokr-medium.woff) format('woff'),
-    url(../../fonts/notokr-medium.ttf) format('truetype');
+    src: url("#{$font-path}/notokr-medium.eot");
+    src: url("#{$font-path}/notokr-medium.eot?#iefix") format('embedded-opentype'),
+    url("#{$font-path}/notokr-medium.woff2") format('woff2'),
+    url("#{$font-path}/notokr-medium.woff") format('woff'),
+    url("#{$font-path}/notokr-medium.ttf") format('truetype');
 }
 @font-face {
     font-family: 'NotoSans';
     font-style: normal;
     font-weight: 700;
-    src: url(../../fonts/notokr-bold.eot);
-    src: url(../../fonts/notokr-bold.eot?#iefix) format('embedded-opentype'),
-    url(../../fonts/notokr-bold.woff2) format('woff2'),
-    url(../../fonts/notokr-bold.woff) format('woff'),
-    url(../../fonts/notokr-bold.ttf) format('truetype');
+    src: url("#{$font-path}/notokr-bold.eot");
+    src: url("#{$font-path}/notokr-bold.eot?#iefix") format('embedded-opentype'),
+    url("#{$font-path}/notokr-bold.woff2") format('woff2'),
+    url("#{$font-path}/notokr-bold.woff") format('woff'),
+    url("#{$font-path}/notokr-bold.ttf") format('truetype');
 }

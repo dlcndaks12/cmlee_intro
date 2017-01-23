@@ -1,5 +1,312 @@
 @charset "UTF-8";
 
 body {
+    overflow: hidden;
     background-color: #222;
+}
+
+.open-profile {
+    .contents {
+        overflow: hidden;
+    }
+}
+
+
+#container {
+    overflow: auto;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+
+    .contents {
+        padding: 30px 30px 50px;
+    }
+}
+
+.profile-area {
+    position: relative;
+    margin-bottom: 30px;
+
+    > a {
+        display: block;
+        position: relative;
+        z-index: 10;
+        width: 100px;
+        margin: 0 auto;
+        border-radius: 10px;
+        background: transparent;
+    }
+
+    .photo {
+        height: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .name {
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .profile-detail {
+
+
+        &.active {
+            .mask {
+                width: 1000px;
+                height: 1000px;
+                z-index: 10000;
+                transform: translate(-50%, -50%) scale(5);
+                transition: all 2s;
+            }
+
+            .inner {
+                visibility: visible;
+                opacity: 1;
+                transition: all .4s .8s;
+
+                .btn-close {
+                    right: 27px;
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        .mask {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            width: 1000px;
+            height: 1000px;
+            border-radius: 50%;
+            background-color: #ffdd50;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0s;
+        }
+
+        .inner {
+            visibility: hidden;
+            opacity: 0;
+            overflow-y: scroll;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 11000;
+            background-color: #ffdd50;
+            transition: all .4s 0s;
+
+            .btn-close {
+                display: block;
+                overflow: hidden;
+                position: fixed;
+                top: 10px;
+                right: -120px;
+                z-index: 20000;
+                width: 60px;
+                height: 60px;
+                text-align: left;
+                text-indent: -9999px;
+                transform: rotate(360deg);
+                transition: all 2s;
+                
+                &::before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 30px;
+                    width: 2px;
+                    height: 60px;
+                    background-color: #333;
+                    transform: rotate(45deg);
+                }
+                &::after {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 30px;
+                    width: 2px;
+                    height: 60px;
+                    background-color: #333;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            .inner-contents {
+                width: 600px;
+                margin: 50px auto;
+                color: #333;
+                font-size: 16px;
+
+                .intro {
+                    margin-bottom: 25px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.info-list {
+    > li {
+        display: table;
+        width: 100%;
+
+        + li {
+            margin-top: 10px;
+        }
+
+        > div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    .key {
+        width: 100px;
+        font-weight: 700;
+    }
+}
+
+.sub-title {
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.section {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+
+    > .project-list {
+        color: #444;
+        font-weight: 700;
+
+        > li {
+            + li {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.pop-detail {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+    transition: all .4s;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+
+        .inner {
+            margin-top: 100px;
+        }
+    }
+
+    .inner {
+        position: relative;
+        width: 600px;
+        margin: 0 auto 100px;
+        padding: 30px;
+        background-color: #ffdd50;
+        transition: margin .4s ease-out;
+
+        > .sub-title {
+            padding-right: 50px;
+        }
+
+        .btn-close {
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 20000;
+            width: 60px;
+            height: 60px;
+            text-align: left;
+            text-indent: -9999px;
+            transform: rotate(360deg);
+            transition: all 2s;
+
+            &::before {
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 30px;
+                width: 2px;
+                height: 60px;
+                background-color: #333;
+                transform: rotate(45deg);
+            }
+            &::after {
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 30px;
+                width: 2px;
+                height: 60px;
+                background-color: #333;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 660px){
+    .profile-area {
+        .profile-detail {
+            &.active {
+                .inner {
+
+                    .btn-close {
+                        right: 10px;
+                    }
+
+                }
+            }
+
+            .inner {
+                .inner-contents {
+                    width: 100%;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .pop-detail {
+
+        &.active {
+            .inner {
+                margin-top: 0;
+            }
+        }
+
+        .inner {
+            width: 100%;
+            margin: 0;
+        }
+    }
 }

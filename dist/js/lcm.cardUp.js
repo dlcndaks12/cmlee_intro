@@ -48,8 +48,14 @@
                             continue;
                         }
                         var $this = items.eq(i);
-                        var offBottom = $this.position().top + $this.outerHeight();
-                        var cOffBottom = cItem.position().top + cItem.outerHeight();
+                        //var offBottom = $this.position().top + $this.outerHeight();
+                        //var cOffBottom = cItem.position().top + cItem.outerHeight();
+                        var trans = $this.prop("style").transform.split(/[()]/)[1];
+                        var posy = trans.split(",")[1];
+                        var offBottom = parseInt(posy) + $this.outerHeight();
+                        var cTrans = cItem.prop("style").transform.split(/[()]/)[1];
+                        var cPosy = cTrans.split(",")[1];
+                        var cOffBottom = parseInt(cPosy) + cItem.outerHeight();
                         if (cOffBottom < offBottom) {
                             cItem = $this;
                             cIdx = i;
@@ -69,8 +75,14 @@
                     if (i == 0) {
                         minOff = $(this);
                     } else {
-                        var minOffBottom = minOff.position().top + minOff.outerHeight();
-                        var cOffBottom = $(this).position().top + $(this).outerHeight();
+                        //var minOffBottom = minOff.position().top + minOff.outerHeight();
+                        //var cOffBottom = $(this).position().top + $(this).outerHeight();
+                        var trans = minOff.prop("style").transform.split(/[()]/)[1];
+                        var posy = trans.split(",")[1];
+                        var minOffBottom = parseInt(posy) + minOff.outerHeight();
+                        var cTrans = $(this).prop("style").transform.split(/[()]/)[1];
+                        var cPosy = cTrans.split(",")[1];
+                        var cOffBottom = parseInt(cPosy) + $(this).outerHeight();
                         if (minOffBottom > cOffBottom) {
                             minOff = $(this);
                         }
@@ -80,8 +92,8 @@
                     var currTrans = minOff.prop("style").transform.split(/[()]/)[1];
                     var posx = currTrans.split(",")[0];
                     var posy = currTrans.split(",")[1];
-                    offset.top = parseInt(posy) + $(minOff).outerHeight() + opts.gutterY;
                     offset.left = parseInt(posx);
+                    offset.top = parseInt(posy) + $(minOff).outerHeight() + opts.gutterY;
                 }
             } else {
                 offset.left = idx * opts.itemWidth + opts.gutterX * idx;
@@ -119,7 +131,9 @@
                     transform: "translate(" + offset.left + "px, " + offset.top + "px)",
                     transition: "transform 0.3s"
                 });
-                var offBottom = $(this).position().top + itemHeight;
+                //var offBottom = $(this).position().top + itemHeight;
+                var cTrans = $(this).prop("style").transform.split(/[()]/)[1];
+                var offBottom = parseInt(cTrans.split(",")[1]) + $(this).outerHeight();
                 if (containerHeight < offBottom) {
                     containerHeight = offBottom;
                 }
