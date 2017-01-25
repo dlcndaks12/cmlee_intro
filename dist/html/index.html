@@ -58,6 +58,21 @@
                 $(this).closest('.pop-detail').removeClass('active');
                 e.preventDefault();
             });
+
+            $('#container').on('scroll', function(e) {
+                var sTop = $(this).scrollTop();
+
+                if(sTop > 100) {
+                    $('.btn-top').addClass('active');
+                }else{
+                    $('.btn-top').removeClass('active');
+                }
+            });
+
+            $('.btn-top').on('click', function(e) {
+                $('#container').stop().animate({scrollTop:0}, '500', 'swing');
+                e.preventDefault();
+            });
         });
     </script>
 </head>
@@ -493,5 +508,7 @@
         <a href="#" class="btn-close">닫기</a>
     </div>
 </div>
+
+<a href="#" class="btn-top">Top</a>
 </body>
 </html>
