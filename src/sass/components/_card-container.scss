@@ -16,20 +16,30 @@
             display: block;
         }
 
+        > a,
+        > div {
+            overflow: hidden;
+            background-color: #111;
+            border-radius: 3px;
+        }
+
         .thumb {
             display: block;
             overflow: hidden;
             position: relative;
+            padding: 10px;
+            border-radius: 3px;
 
             img {
                 width: 100%;
+                border-radius: 3px;
             }
         }
 
         .desc {
             display: block;
-            margin-top: 10px;
-            color: #fff;
+            padding: 10px;
+            color: #999;
             font-size: 16px;
         }
     }
