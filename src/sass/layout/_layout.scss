@@ -2,7 +2,7 @@
 
 body {
     overflow: hidden;
-    background-color: #222;
+    background-color: #f2f2f2;
 }
 
 .open-profile {
@@ -44,6 +44,7 @@ body {
         overflow: hidden;
         height: 100px;
         border-radius: 50%;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.6);
 
         img {
             height: 100%;
@@ -53,9 +54,10 @@ body {
     .name {
         margin-top: 10px;
         text-align: center;
-        color: #bbb;
+        color: #333;
         font-size: 15px;
         white-space: nowrap;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
     .profile-detail {
@@ -89,7 +91,7 @@ body {
             width: 1000px;
             height: 1000px;
             border-radius: 50%;
-            background-color: #ffdd50;
+            background-color: #b5db92;
             transform: translate(-50%, -50%) scale(0);
             transition: all 0s;
         }
@@ -104,7 +106,7 @@ body {
             bottom: 0;
             left: 0;
             z-index: 11000;
-            background-color: #ffdd50;
+            background-color: #b5db92;
             transition: all .4s 0s;
 
             .btn-close {
@@ -296,6 +298,7 @@ body {
     font-size: 13px;
     text-align: center;
     text-indent: -9999px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transform: translateY(50px) scale(0);
     transition: all 0.2s cubic-bezier(0, 0, 0.7, 1.59);
 

@@ -14,33 +14,80 @@
 
         a {
             display: block;
+
+            &:hover {
+                .thumb {
+                    &::before {
+                        transform: translateY(0%);
+                    }
+
+                    &::after {
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
         }
 
         > a,
         > div {
             overflow: hidden;
-            background-color: #111;
+            background-color: #fff;
             border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .thumb {
             display: block;
             overflow: hidden;
             position: relative;
-            padding: 10px;
-            border-radius: 3px;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(255,255,255,0.2);
+                transform: translateY(100%);
+                transition: all .3s;
+            }
+
+            &::after {
+                content: 'Link';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                visibility: hidden;
+                opacity: 0;
+                width: 40px;
+                height: 40px;
+                padding: 9px 0;
+                border-radius: 50%;
+                background: rgba(0,0,0,0.6);
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                transform: translate(-50%, -200%);
+                transition: all .2s .2s;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+            }
 
             img {
                 width: 100%;
-                border-radius: 3px;
             }
         }
 
         .desc {
             display: block;
-            padding: 10px;
+            padding: 15px;
             color: #999;
-            font-size: 16px;
+            border: 1px solid #eee;
+            font-size: 14px;
         }
     }
 }
