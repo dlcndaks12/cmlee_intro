@@ -18,23 +18,99 @@ body {
 #container {
     overflow: auto;
     height: 100%;
+}
+.contents {
     position: relative;
-    z-index: 100;
+}
+.cont {
+    padding: 30px 20px 50px;
+}
+.video-background {
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+    background: #fff;
 
-    .contents {
-        padding: 30px 20px 50px;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+    }
+}
+.video-foreground {
+    @include alignXY;
+    width: 100%;
+    height: 6000px;
+    pointer-events: none;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+
+.profile-area-helper {
+    height: 132px;
+}
+
+.fix {
+    &.open-profile {
+        .btn-top {
+            z-index: -1;
+        }
+    }
+
+    #container {
+        .contents {
+            position: static;
+        }
+    }
+
+    .profile-area {
+        top: 625px;
+        left: 65px;
+        margin-top: -610px;
+
+        .profile-detail {
+            .mask {
+                top: 30px;
+                left: 30%;
+            }
+        }
+
+        .photo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .name {
+            display: none;
+        }
     }
 }
 
 .profile-area {
-    position: relative;
-    margin-bottom: 60px;
+    position: absolute;
+    top: 550px;
+    left: 50%;
+    z-index: 100;
+    margin-top: 0;
+    margin-left: -33px;
+    transition: top .4s, left .4s;
 
     > a {
         display: block;
         position: relative;
         z-index: 10;
-        width: 100px;
         margin: 0 auto;
         border-radius: 10px;
         background: transparent;
@@ -42,11 +118,15 @@ body {
 
     .photo {
         overflow: hidden;
+        position: relative;
+        width: 100px;
         height: 100px;
         border-radius: 50%;
         box-shadow: 0 1px 5px rgba(0,0,0,0.6);
+        transition: all .3s;
 
         img {
+            @include alignX;
             height: 100%;
         }
     }
@@ -54,22 +134,25 @@ body {
     .name {
         margin-top: 10px;
         text-align: center;
+        font-family: $font-sil;
+        letter-spacing: 3px;
         color: #333;
-        font-size: 15px;
+        font-weight: 700;
+        font-size: 16px;
         white-space: nowrap;
         text-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
     .profile-detail {
-
+        font-size: 15px;
 
         &.active {
             .mask {
                 width: 1000px;
                 height: 1000px;
                 z-index: 10000;
-                transform: translate(-50%, -50%) scale(5);
-                transition: all 2s;
+                transform: translate(-50%, -50%) translateZ(0) scale(5);
+                transition: transform 2s;
             }
 
             .inner {
@@ -91,9 +174,9 @@ body {
             width: 1000px;
             height: 1000px;
             border-radius: 50%;
-            background-color: #b5db92;
-            transform: translate(-50%, -50%) scale(0);
-            transition: all 0s;
+            background-color: #000;
+            transform: translate(-50%, -50%) translateZ(0) scale(0);
+            transition: transform 0s;
         }
 
         .inner {
@@ -106,7 +189,7 @@ body {
             bottom: 0;
             left: 0;
             z-index: 11000;
-            background-color: #b5db92;
+            background-color: #000;
             transition: all .4s 0s;
 
             .btn-close {
@@ -131,7 +214,7 @@ body {
                     right: 30px;
                     width: 2px;
                     height: 60px;
-                    background-color: #333;
+                    background-color: #fff;
                     transform: rotate(45deg);
                 }
                 &::after {
@@ -142,7 +225,7 @@ body {
                     right: 30px;
                     width: 2px;
                     height: 60px;
-                    background-color: #333;
+                    background-color: #fff;
                     transform: rotate(-45deg);
                 }
             }
@@ -150,7 +233,8 @@ body {
             .inner-contents {
                 width: 600px;
                 margin: 50px auto;
-                color: #333;
+                color: #fff;
+                font-weight: 400;
                 font-size: 16px;
 
                 .intro {
@@ -163,6 +247,8 @@ body {
 }
 
 .info-list {
+    font-size: 15px;
+
     > li {
         display: table;
         width: 100%;
@@ -179,13 +265,13 @@ body {
 
     .key {
         width: 100px;
-        font-weight: 700;
+        font-weight: 400;
     }
 }
 
 .sub-title {
     margin-bottom: 20px;
-    color: #222;
+    color: #fff;
     font-weight: 700;
     font-size: 18px;
 }
@@ -196,8 +282,8 @@ body {
     border-top: 1px solid #333;
 
     > .project-list {
-        color: #444;
-        font-weight: 700;
+        color: #fff;
+        font-weight: 400;
 
         > li {
             + li {
@@ -326,6 +412,17 @@ body {
         border-right: 10px solid transparent;
         border-bottom: 10px solid #ffdd50;
         border-left: 10px solid transparent;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .video-background {
+        display: none;
+    }
+    #container {
+        .contents {
+            margin-top: 0;
+        }
     }
 }
 

@@ -30,3 +30,9 @@
     url("#{$font-path}/notokr-bold.woff") format('woff'),
     url("#{$font-path}/notokr-bold.ttf") format('truetype');
 }
+@font-face {
+    font-family: 'Shadows Into Light';
+    font-style: normal;
+    font-weight: 400;
+    src: url("#{$font-path}/ShadowsIntoLight.ttf") format('truetype');
+}

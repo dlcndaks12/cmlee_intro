@@ -25,7 +25,18 @@
             });
         });
 
+        function fixProfile(sTop) {
+            $('.profile-area').stop().animate({
+                top: sTop + 'px',
+                left: '60px'
+            }, 400, 'linear', function() {
+                $('.profile-area').css({
+                });
+            });
+        }
+
         $(document).ready(function (){
+
             $('.profile-area > a').on('click', function(e) {
                 $('body').addClass('open-profile');
                 $(this).prev().addClass('active');
@@ -64,8 +75,15 @@
 
                 if(sTop > 100) {
                     $('.btn-top').addClass('active');
+
                 }else{
                     $('.btn-top').removeClass('active');
+                }
+
+                if(sTop > 600) {
+                    $('body').addClass('fix');
+                }else{
+                    $('body').removeClass('fix');
                 }
             });
 
@@ -79,233 +97,247 @@
 <body>
 
 <div id="container">
+
     <div class="contents">
-        <div class="profile-area">
-            <div class="profile-detail">
-                <div class="mask"></div>
+        <div class="video-background">
+            <div class="video-foreground">
+                <iframe src="https://www.youtube.com/embed/4Z7_QwKN2rk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=4Z7_QwKN2rk" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="profile-area-helper">
+                <div class="profile-area">
+                    <div class="profile-detail">
+                        <div class="mask"></div>
 
-                <div class="inner">
-                    <div class="inner-contents">
-                        <ul class="info-list">
-                            <li>
-                                <div class="key">이름</div>
-                                <div class="value">이충만</div>
-                            </li>
-                            <li>
-                                <div class="key">성별</div>
-                                <div class="value">남</div>
-                            </li>
-                            <li>
-                                <div class="key">생년월일</div>
-                                <div class="value">1991.04.01</div>
-                            </li>
-                            <li>
-                                <div class="key">전화번호</div>
-                                <div class="value">010-2969-3013</div>
-                            </li>
-                            <li>
-                                <div class="key">이메일</div>
-                                <div class="value">dlcndaks12@naver.com</div>
-                            </li>
-                        </ul>
+                        <div class="inner">
+                            <div class="inner-contents">
+                                <ul class="info-list">
+                                    <li>
+                                        <div class="key">이름</div>
+                                        <div class="value">이충만</div>
+                                    </li>
+                                    <li>
+                                        <div class="key">성별</div>
+                                        <div class="value">남</div>
+                                    </li>
+                                    <li>
+                                        <div class="key">생년월일</div>
+                                        <div class="value">1991.04.01</div>
+                                    </li>
+                                    <li>
+                                        <div class="key">전화번호</div>
+                                        <div class="value">010-2969-3013</div>
+                                    </li>
+                                    <li>
+                                        <div class="key">이메일</div>
+                                        <div class="value">dlcndaks12@naver.com</div>
+                                    </li>
+                                </ul>
 
-                        <div class="section">
-                            <div class="sub-title">퍼블리싱 프로젝트</div>
-                            <ul class="project-list">
-                                <li><a target="_blank" href="http://www.skylife.co.kr">스카이라이프 리뉴얼</a></li>
-                                <li><a target="_blank" href="#">한국타이어 DWP 구축</a></li>
-                                <li><a target="_blank" href="https://www.creativekorea.or.kr">창조경제타운 홈페이지 구축</a></li>
-                                <li><a target="_blank" href="http://www.kogas.or.kr">한국가스공사 홈페이지 메인화면 개선</a></li>
-                                <li><a target="_blank" href="http://www.kogas.or.kr">가스기술연구원 홈페이지 구축</a></li>
-                                <li><a target="_blank" href="http://www.scienceall.com">사이언스올(과학콘텐츠센터)구축 활성화</a></li>
-                                <li><a target="_blank" href="http://3ting.co.kr">3ting 홈페이지 구축</a></li>
-                                <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-                                <li><a target="_blank" href="http://jdcenter.co.kr/main/index.do">JDC 기관 홈페이지 유지보수 및 관리운영 용역</a></li>
-                                <li><a target="_blank" href="#">인사혁신처 교육정보통합시스템 구축</a></li>
-                                <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 구축</a></li>
-                                <li><a target="_blank" href="http://www.kicox.or.kr/index.do">한국산업단지공단 홈페이지 구축</a></li>
-                            </ul>
-                        </div>
+                                <div class="section">
+                                    <div class="sub-title">퍼블리싱 프로젝트</div>
+                                    <ul class="project-list">
+                                        <li><a target="_blank" href="http://www.skylife.co.kr">스카이라이프 리뉴얼</a></li>
+                                        <li><a target="_blank" href="#">한국타이어 DWP 구축</a></li>
+                                        <li><a target="_blank" href="https://www.creativekorea.or.kr">창조경제타운 홈페이지 구축</a></li>
+                                        <li><a target="_blank" href="http://www.kogas.or.kr">한국가스공사 홈페이지 메인화면 개선</a></li>
+                                        <li><a target="_blank" href="http://www.kogas.or.kr">가스기술연구원 홈페이지 구축</a></li>
+                                        <li><a target="_blank" href="http://www.scienceall.com">사이언스올(과학콘텐츠센터)구축 활성화</a></li>
+                                        <li><a target="_blank" href="http://3ting.co.kr">3ting 홈페이지 구축</a></li>
+                                        <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
+                                        <li><a target="_blank" href="http://jdcenter.co.kr/main/index.do">JDC 기관 홈페이지 유지보수 및 관리운영 용역</a></li>
+                                        <li><a target="_blank" href="#">인사혁신처 교육정보통합시스템 구축</a></li>
+                                        <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 구축</a></li>
+                                        <li><a target="_blank" href="http://www.kicox.or.kr/index.do">한국산업단지공단 홈페이지 구축</a></li>
+                                    </ul>
+                                </div>
 
-                        <div class="section">
-                            <div class="sub-title">개발 프로젝트</div>
-                            <ul class="project-list">
-                                <li><a target="_blank" href="http://m.coscoi.net">코스코이 모바일 개발</a></li>
-                                <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-                                <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 운영</a></li>
-                                <li><a target="_blank" href="#">사내 cms 개발</a></li>
-                            </ul>
-                        </div>
+                                <div class="section">
+                                    <div class="sub-title">개발 프로젝트</div>
+                                    <ul class="project-list">
+                                        <li><a target="_blank" href="http://m.coscoi.net">코스코이 모바일 개발</a></li>
+                                        <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
+                                        <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 운영</a></li>
+                                        <li><a target="_blank" href="#">사내 cms 개발</a></li>
+                                    </ul>
+                                </div>
 
-                        <div class="section">
-                            <div class="sub-title">기술</div>
-                            <ul class="info-list">
-                                <li>
-                                    <div class="key">HTML</div>
-                                    <div class="value">웹표준, 웹접근성, HTML5, 크로스브라우징, 하이브리드앱</div>
-                                </li>
-                                <li>
-                                    <div class="key">CSS</div>
-                                    <div class="value">CSS3, Animation, 동적구현, CSS전처리(SASS)</div>
-                                </li>
-                                <li>
-                                    <div class="key">SCRIPT</div>
-                                    <div class="value">Jquery, Ajax, 동적구현, Animation, Closure</div>
-                                </li>
-                                <li>
-                                    <div class="key">BUILD</div>
-                                    <div class="value">GULP, GRUNT</div>
-                                </li>
-                                <li>
-                                    <div class="key">JAVA</div>
-                                    <div class="value">Spring 프레임워크, Strategy, Adapter, Template, Factory 디자인패턴</div>
-                                </li>
-                                <li>
-                                    <div class="key">JSP</div>
-                                    <div class="value">JSTL</div>
-                                </li>
-                                <li>
-                                    <div class="key">SQL</div>
-                                    <div class="value">Oracle, MySql, MsSql</div>
-                                </li>
-                                <li>
-                                    <div class="key">LINUX</div>
-                                    <div class="value">CentOS, Ubuntu</div>
-                                </li>
-                                <li>
-                                    <div class="key">VCS</div>
-                                    <div class="value">Svn, Git, Github, Bitbucket</div>
-                                </li>
-                            </ul>
+                                <div class="section">
+                                    <div class="sub-title">기술</div>
+                                    <ul class="info-list">
+                                        <li>
+                                            <div class="key">HTML</div>
+                                            <div class="value">웹표준, 웹접근성, HTML5, 크로스브라우징, 하이브리드앱</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">CSS</div>
+                                            <div class="value">CSS3, Animation, 동적구현, CSS전처리(SASS)</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">SCRIPT</div>
+                                            <div class="value">Jquery, Ajax, 동적구현, Animation, Closure</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">BUILD</div>
+                                            <div class="value">GULP, GRUNT</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">JAVA</div>
+                                            <div class="value">Spring 프레임워크, Strategy, Adapter, Template, Factory 디자인패턴</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">JSP</div>
+                                            <div class="value">JSTL</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">SQL</div>
+                                            <div class="value">Oracle, MySql, MsSql</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">LINUX</div>
+                                            <div class="value">CentOS, Ubuntu</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">VCS</div>
+                                            <div class="value">Svn, Git, Github, Bitbucket</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-close">닫기</a>
                         </div>
                     </div>
-                    <a href="#" class="btn-close">닫기</a>
+
+                    <a href="#">
+                        <div class="photo">
+                            <img src="../images/profile2.jpg" alt="">
+                        </div>
+                        <div class="name">Profile</div>
+                    </a>
                 </div>
             </div>
 
-            <a href="#">
-                <div class="photo">
-                    <img src="../images/profile.jpg" alt="">
-                </div>
-                <div class="name">프로필</div>
-            </a>
-        </div>
+            <div class="title">portfolio</div>
 
-        <ul class="card-container">
-            <li>
-                <a href="#" data-popup="skylife">
-                    <span class="thumb"><img src="../images/skylife.jpg" alt=""></span>
-                    <span class="desc">
+            <ul class="card-container">
+                <li>
+                    <a href="#" data-popup="skylife">
+                        <span class="thumb"><img src="../images/skylife.jpg" alt=""></span>
+                        <span class="desc">
                     SkyLife 웹서비스 개편구축
                 </span>
-                </a>
-            </li>
-            <li>
-                <a target="_blank" href="../../projects/tetris/html/index.html">
-                    <span class="thumb"><img src="../images/tetris.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="../../projects/tetris/html/index.html">
+                        <span class="thumb"><img src="../images/tetris.jpg" alt=""></span>
+                        <span class="desc">
                     테트리스(개인프로젝트)
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="hankook">
-                    <span class="thumb"><img src="../images/hankook.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="hankook">
+                        <span class="thumb"><img src="../images/hankook.jpg" alt=""></span>
+                        <span class="desc">
                     한국타이어 디지털워크플레이스 DWP 구축
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="creative">
-                    <span class="thumb"><img src="../images/creative.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="creative">
+                        <span class="thumb"><img src="../images/creative.jpg" alt=""></span>
+                        <span class="desc">
                     창조경제타운 서비스 구축
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="scienceall">
-                    <span class="thumb"><img src="../images/scienceall.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="scienceall">
+                        <span class="thumb"><img src="../images/scienceall.jpg" alt=""></span>
+                        <span class="desc">
                     사이언스올 웹사이트 운영 및 활성화 사업
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="3ting">
-                    <span class="thumb"><img src="../images/3ting.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="3ting">
+                        <span class="thumb"><img src="../images/3ting.jpg" alt=""></span>
+                        <span class="desc">
                     3D 프린팅 출력서비스 오픈 및 3Ting 웹사이트 신규 구축
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="africa">
-                    <span class="thumb"><img src="../images/afreeca.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="africa">
+                        <span class="thumb"><img src="../images/afreeca.jpg" alt=""></span>
+                        <span class="desc">
                     아프리카 미래전략센터 구축, 유지보수
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="kogas">
-                    <span class="thumb"><img src="../images/kogas.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="kogas">
+                        <span class="thumb"><img src="../images/kogas.jpg" alt=""></span>
+                        <span class="desc">
                     한국가스공사 홈페이지 개선
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="training">
-                    <span class="thumb"><img src="../images/training.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="training">
+                        <span class="thumb"><img src="../images/training.jpg" alt=""></span>
+                        <span class="desc">
                     교육정보통합시스템 구축 사업
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="bitmaru">
-                    <span class="thumb"><img src="../images/bitmaru.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="bitmaru">
+                        <span class="thumb"><img src="../images/bitmaru.jpg" alt=""></span>
+                        <span class="desc">
                     빛마루 유통시스템 및 홈페이지 운용관리 위탁용역
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="coscoi-m">
-                    <span class="thumb"><img src="../images/coscoi.png" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="coscoi-m">
+                        <span class="thumb"><img src="../images/coscoi.png" alt=""></span>
+                        <span class="desc">
                     코스코이 모바일 개발
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="kicox">
-                    <span class="thumb"><img src="../images/kicox.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="kicox">
+                        <span class="thumb"><img src="../images/kicox.jpg" alt=""></span>
+                        <span class="desc">
                     한국산업단지공단 홈페이지 구축
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="jdc">
-                    <span class="thumb"><img src="../images/jdc.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="jdc">
+                        <span class="thumb"><img src="../images/jdc.jpg" alt=""></span>
+                        <span class="desc">
                     JDC 기관 홈페이지 유지보수 및 관리운영 용역
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-popup="3ting-m">
-                    <span class="thumb"><img src="../images/3ting-m.jpg" alt=""></span>
-                    <span class="desc">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-popup="3ting-m">
+                        <span class="thumb"><img src="../images/3ting-m.jpg" alt=""></span>
+                        <span class="desc">
                     IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&D사업
                 </span>
-                </a>
-            </li>
-        </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
+
+    <a href="#" class="btn-top">Top</a>
 </div>
 
 
@@ -508,7 +540,5 @@
         <a href="#" class="btn-close">닫기</a>
     </div>
 </div>
-
-<a href="#" class="btn-top">Top</a>
 </body>
 </html>
