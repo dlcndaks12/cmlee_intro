@@ -9,17 +9,17 @@ body {
     #container {
         z-index: 200;
     }
-    .contents {
-        overflow: hidden;
+    .btn-top {
+        z-index: 10;
     }
 }
-
 
 #container {
     overflow: auto;
     height: 100%;
 }
 .contents {
+    overflow: hidden;
     position: relative;
 }
 .cont {
@@ -31,6 +31,21 @@ body {
     height: 600px;
     background: #fff;
 
+    .txt {
+        @include alignXY;
+        z-index: 10;
+        color: #fff;
+        font-family: $font-sil;
+        font-size: 40px;
+        letter-spacing: 3px;
+    }
+}
+.video-foreground {
+    @include alignXY;
+    width: 100%;
+    height: 6000px;
+    pointer-events: none;
+
     &::after {
         content: '';
         display: block;
@@ -41,14 +56,9 @@ body {
         left: 0;
         background: rgba(0,0,0,0.2);
     }
-}
-.video-foreground {
-    @include alignXY;
-    width: 100%;
-    height: 6000px;
-    pointer-events: none;
 
-    iframe {
+    video {
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
@@ -59,7 +69,7 @@ body {
 }
 
 .profile-area-helper {
-    height: 132px;
+    height: 100px;
 }
 
 .fix {
@@ -98,13 +108,41 @@ body {
     }
 }
 
+.section-title {
+    position: relative;
+    margin-bottom: 30px;
+    text-align: center;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 0;
+        left: 0;
+        border-bottom: 1px dashed #ddd;
+    }
+
+    span {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        padding: 5px 15px;
+        background-color: #f2f2f2;
+        font-family: $font-sil;
+        color: #333;
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+}
+
 .profile-area {
     position: absolute;
     top: 550px;
     left: 50%;
     z-index: 100;
     margin-top: 0;
-    margin-left: -33px;
+    margin-left: -50px;
     transition: top .4s, left .4s;
 
     > a {
@@ -144,14 +182,13 @@ body {
     }
 
     .profile-detail {
-        font-size: 15px;
 
         &.active {
             .mask {
-                width: 1000px;
-                height: 1000px;
+                width: 10000px;
+                height: 10000px;
                 z-index: 10000;
-                transform: translate(-50%, -50%) translateZ(0) scale(5);
+                transform: translate(-50%, -50%) translateZ(0) scale(1);
                 transition: transform 2s;
             }
 
@@ -162,7 +199,7 @@ body {
 
                 .btn-close {
                     right: 27px;
-                    transform: rotate(0deg);
+                    transform: translateZ(0) rotate(0deg);
                 }
             }
         }
@@ -190,6 +227,7 @@ body {
             left: 0;
             z-index: 11000;
             background-color: #000;
+            font-size: 15px;
             transition: all .4s 0s;
 
             .btn-close {
@@ -203,7 +241,7 @@ body {
                 height: 60px;
                 text-align: left;
                 text-indent: -9999px;
-                transform: rotate(420deg);
+                transform: translateZ(0) rotate(420deg);
                 transition: all 2s;
                 
                 &::before {
@@ -415,9 +453,21 @@ body {
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1100px){
     .video-background {
         display: none;
+    }
+    .fix {
+        .profile-area {
+            top: 25px;
+            margin-top: -10px;
+        }
+    }
+    .profile-area-helper {
+        height: 180px;
+    }
+    .profile-area {
+        top: 20px;
     }
     #container {
         .contents {

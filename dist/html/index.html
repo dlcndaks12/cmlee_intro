@@ -25,15 +25,23 @@
             });
         });
 
-        function fixProfile(sTop) {
-            $('.profile-area').stop().animate({
-                top: sTop + 'px',
-                left: '60px'
-            }, 400, 'linear', function() {
-                $('.profile-area').css({
-                });
-            });
+        // return a throttled function
+        function waitForPause(ms, callback) {
+            var timer;
+
+            return function() {
+                var self = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    callback.apply(self, args);
+                }, ms);
+            };
         }
+
+        this.start = function() {
+            // wrap around your callback
+            $('#container').scroll( waitForPause( 30, self.worker ) );
+        };
 
         $(document).ready(function (){
 
@@ -70,8 +78,15 @@
                 e.preventDefault();
             });
 
+            var eventOffTop = $('.profile-area').offset().top + 50;
+
             $('#container').on('scroll', function(e) {
                 var sTop = $(this).scrollTop();
+                var scale = 1 - sTop/800;
+
+                $('.video-background .txt').css({
+                    transform: 'translate(-50%, -50%) scale('+scale+')'
+                });
 
                 if(sTop > 100) {
                     $('.btn-top').addClass('active');
@@ -79,12 +94,16 @@
                 }else{
                     $('.btn-top').removeClass('active');
                 }
-
-                if(sTop > 600) {
+                if(sTop > eventOffTop) {
                     $('body').addClass('fix');
                 }else{
                     $('body').removeClass('fix');
                 }
+
+                var videoTop = sTop - (sTop / 2);
+                $('.video-foreground').css({
+                    marginTop: videoTop + 'px'
+                });
             });
 
             $('.btn-top').on('click', function(e) {
@@ -98,10 +117,15 @@
 
 <div id="container">
 
-    <div class="contents">
+    <div class="contents" id="contents">
         <div class="video-background">
             <div class="video-foreground">
-                <iframe src="https://www.youtube.com/embed/4Z7_QwKN2rk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=4Z7_QwKN2rk" frameborder="0" allowfullscreen></iframe>
+                <video poster="../images/video-poster.jpg" id="bgvid" playsinline autoplay muted loop>
+                    <source src="../images/bg-video.mp4" type="video/mp4">
+                    <source src="../images/bg-video.webm" type="video/webm">
+                </video>
+
+                <div class="txt">Slow and steady win the race.</div>
             </div>
         </div>
         <div class="cont">
@@ -218,7 +242,7 @@
                 </div>
             </div>
 
-            <div class="title">portfolio</div>
+            <div class="section-title"><span>PORTFOLIO</span></div>
 
             <ul class="card-container">
                 <li>
@@ -329,7 +353,7 @@
                     <a href="#" data-popup="3ting-m">
                         <span class="thumb"><img src="../images/3ting-m.jpg" alt=""></span>
                         <span class="desc">
-                    IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&D사업
+                    IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&amp;D사업
                 </span>
                     </a>
                 </li>
@@ -515,7 +539,7 @@
 
 <div class="pop-detail" id="3ting-m">
     <div class="inner">
-        <div class="sub-title">IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&D사업</div>
+        <div class="sub-title">IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&amp;D사업</div>
         <div class="section">
             <ul class="project-list">
                 <li>하이브리드앱 프로젝트</li>
