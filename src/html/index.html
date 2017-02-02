@@ -13,6 +13,7 @@
     <script src="../js/lib/jquery-3.1.1.min.js"></script>
     <script src="../js/lib/jquery-ui.min.js"></script>
     <script src="../js/lib/slick.min.js"></script>
+    <script src="../js/lib/circle-progress.js"></script>
     <script src="../js/lcm.cardUp.js"></script>
     <script src="../js/layout.js"></script>
     <script src="../js/component.js"></script>
@@ -110,6 +111,7 @@
                 $('#container').stop().animate({scrollTop:0}, '500', 'swing');
                 e.preventDefault();
             });
+
         });
     </script>
 </head>
@@ -133,7 +135,6 @@
                 <div class="profile-area">
                     <div class="profile-detail">
                         <div class="mask"></div>
-
                         <div class="inner">
                             <div class="inner-contents">
                                 <ul class="info-list">
@@ -150,41 +151,16 @@
                                         <div class="value">1991.04.01</div>
                                     </li>
                                     <li>
-                                        <div class="key">전화번호</div>
-                                        <div class="value">010-2969-3013</div>
-                                    </li>
-                                    <li>
                                         <div class="key">이메일</div>
                                         <div class="value">dlcndaks12@naver.com</div>
                                     </li>
                                 </ul>
 
                                 <div class="section">
-                                    <div class="sub-title">퍼블리싱 프로젝트</div>
-                                    <ul class="project-list">
-                                        <li><a target="_blank" href="http://www.skylife.co.kr">스카이라이프 리뉴얼</a></li>
-                                        <li><a target="_blank" href="#">한국타이어 DWP 구축</a></li>
-                                        <li><a target="_blank" href="https://www.creativekorea.or.kr">창조경제타운 홈페이지 구축</a></li>
-                                        <li><a target="_blank" href="http://www.kogas.or.kr">한국가스공사 홈페이지 메인화면 개선</a></li>
-                                        <li><a target="_blank" href="http://www.kogas.or.kr">가스기술연구원 홈페이지 구축</a></li>
-                                        <li><a target="_blank" href="http://www.scienceall.com">사이언스올(과학콘텐츠센터)구축 활성화</a></li>
-                                        <li><a target="_blank" href="http://3ting.co.kr">3ting 홈페이지 구축</a></li>
-                                        <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-                                        <li><a target="_blank" href="http://jdcenter.co.kr/main/index.do">JDC 기관 홈페이지 유지보수 및 관리운영 용역</a></li>
-                                        <li><a target="_blank" href="#">인사혁신처 교육정보통합시스템 구축</a></li>
-                                        <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 구축</a></li>
-                                        <li><a target="_blank" href="http://www.kicox.or.kr/index.do">한국산업단지공단 홈페이지 구축</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="section">
-                                    <div class="sub-title">개발 프로젝트</div>
-                                    <ul class="project-list">
-                                        <li><a target="_blank" href="http://m.coscoi.net">코스코이 모바일 개발</a></li>
-                                        <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-                                        <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 운영</a></li>
-                                        <li><a target="_blank" href="#">사내 cms 개발</a></li>
-                                    </ul>
+                                    <div class="sub-title">소개</div>
+                                    <p>
+                                        이것저것 하고싶은 것 많고 개발 '조금' 하는 퍼블리셔 입니다.
+                                    </p>
                                 </div>
 
                                 <div class="section">
@@ -192,7 +168,11 @@
                                     <ul class="info-list">
                                         <li>
                                             <div class="key">HTML</div>
-                                            <div class="value">웹표준, 웹접근성, HTML5, 크로스브라우징, 하이브리드앱</div>
+                                            <div class="value">웹표준, 웹접근성, HTML5, Cross Browsing</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">MOBILE</div>
+                                            <div class="value">반응형웹, 모바일웹, 하이브리드앱</div>
                                         </li>
                                         <li>
                                             <div class="key">CSS</div>
@@ -200,7 +180,7 @@
                                         </li>
                                         <li>
                                             <div class="key">SCRIPT</div>
-                                            <div class="value">Jquery, Ajax, 동적구현, Animation, Closure</div>
+                                            <div class="value">Jquery, Ajax, OOP, Closure</div>
                                         </li>
                                         <li>
                                             <div class="key">BUILD</div>
@@ -208,15 +188,15 @@
                                         </li>
                                         <li>
                                             <div class="key">JAVA</div>
-                                            <div class="value">Spring 프레임워크, Strategy, Adapter, Template, Factory 디자인패턴</div>
+                                            <div class="value">Spring framework, RESTful, Design pattern</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">DB</div>
+                                            <div class="value">Mybatis, Oracle, MySql, MsSql</div>
                                         </li>
                                         <li>
                                             <div class="key">JSP</div>
                                             <div class="value">JSTL</div>
-                                        </li>
-                                        <li>
-                                            <div class="key">SQL</div>
-                                            <div class="value">Oracle, MySql, MsSql</div>
                                         </li>
                                         <li>
                                             <div class="key">LINUX</div>
@@ -225,6 +205,10 @@
                                         <li>
                                             <div class="key">VCS</div>
                                             <div class="value">Svn, Git, Github, Bitbucket</div>
+                                        </li>
+                                        <li>
+                                            <div class="key">ETC</div>
+                                            <div class="value">API 연동 경험, JSON</div>
                                         </li>
                                     </ul>
                                 </div>
@@ -247,10 +231,17 @@
             <ul class="card-container">
                 <li>
                     <a href="#" data-popup="skylife">
-                        <span class="thumb"><img src="../images/skylife.jpg" alt=""></span>
+                        <span class="thumb">
+                            <img src="../images/skylife.jpg" alt="">
+                        </span>
                         <span class="desc">
                     SkyLife 웹서비스 개편구축
                 </span>
+
+                        <span class="tag-list">
+                            <span class="tag dev">개발</span>
+                            <span class="tag pub">퍼블리싱</span>
+                        </span>
                     </a>
                 </li>
                 <li>

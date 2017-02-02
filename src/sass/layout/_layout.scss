@@ -468,6 +468,16 @@ body {
     }
     .profile-area {
         top: 20px;
+
+        .profile-detail {
+            &.active {
+                .mask {
+                    width: 1000px;
+                    height: 1000px;
+                    transform: translate(-50%, -50%) translateZ(0) scale(3);
+                }
+            }
+        }
     }
     #container {
         .contents {
@@ -481,7 +491,6 @@ body {
         .profile-detail {
             &.active {
                 .inner {
-
                     .btn-close {
                         right: 10px;
                     }
