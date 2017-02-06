@@ -72,6 +72,21 @@ body {
     height: 100px;
 }
 
+.card-list-wrap {
+    position: relative;
+    margin-top: 50px;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -50px;
+        right: 0;
+        left: 0;
+        border-bottom: 1px dashed #ddd;
+    }
+}
+
 .fix {
     &.open-profile {
         .btn-top {
