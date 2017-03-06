@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.main {
+    overflow-x: hidden;
+    height: 100%;
+
+    .txt-list {
+        .txt {
+            &.slick-active {
+                p {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(0px);
+                    transition: all .5s .4s;
+                    &:nth-child(2) {
+                        transition: all .5s .8s;
+                    }
+                }
+            }
+            p {
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(-50px);
+                transition: all 0s;
+            }
+        }
+    }
+}

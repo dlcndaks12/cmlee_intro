@@ -48,8 +48,6 @@
                             continue;
                         }
                         var $this = items.eq(i);
-                        //var offBottom = $this.position().top + $this.outerHeight();
-                        //var cOffBottom = cItem.position().top + cItem.outerHeight();
                         var trans = $this.prop("style").transform.split(/[()]/)[1];
                         var posy = trans.split(",")[1];
                         var offBottom = parseInt(posy) + $this.outerHeight();
@@ -75,8 +73,6 @@
                     if (i == 0) {
                         minOff = $(this);
                     } else {
-                        //var minOffBottom = minOff.position().top + minOff.outerHeight();
-                        //var cOffBottom = $(this).position().top + $(this).outerHeight();
                         var trans = minOff.prop("style").transform.split(/[()]/)[1];
                         var posy = trans.split(",")[1];
                         var minOffBottom = parseInt(posy) + minOff.outerHeight();
@@ -116,11 +112,13 @@
                 var itemWidth = option.itemWidth + "px";
                 var position = "absolute";
                 var marginTop = "0";
-                if (winWidth - 10 <= option.itemWidth) {
+                var transform = "translate(" + offset.left + "px, " + offset.top + "px)";
+                if (grid <= 1) {
                     itemWidth = "100%";
                     containerWidth = "100%";
                     position = "static";
                     marginTop = option.gutterY + "px";
+                    transform = "translate(0px, 0px)";
                 }
                 $(this).css({
                     position: position,
@@ -128,7 +126,7 @@
                     left: "0",
                     width: itemWidth,
                     marginTop: marginTop,
-                    transform: "translate(" + offset.left + "px, " + offset.top + "px)",
+                    transform: transform,
                     transition: "transform 0.3s"
                 });
                 //var offBottom = $(this).position().top + itemHeight;
@@ -136,6 +134,9 @@
                 var offBottom = parseInt(cTrans.split(",")[1]) + $(this).outerHeight();
                 if (containerHeight < offBottom) {
                     containerHeight = offBottom;
+                }
+                if (grid <= 1) {
+                    containerHeight = "auto";
                 }
             });
             $container.css({

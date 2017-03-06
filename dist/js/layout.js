@@ -1,35 +1,54 @@
-(function() {
-    /* header 상단 버튼 클릭시 */
-    $(document).on("click", "#header .mc-blog > a, #header .alarm > a, #header .user > a", function(e) {
-        $(this).next().toggleClass("active");
-        return false;
-    });
-    /* gnb 메뉴 관련 */
-    $(document).on("click", "body", function() {
-        $("#header .util .active").removeClass("active");
-    });
-    $(document).on("click", ".mc-blog-layer, .alarm-layer, .user-layer", function(e) {
-        return false;
-    });
-    $(document).on("mouseover focusin", ".gnb > ul > li > a", function() {
+$(document).ready(function() {
+    $("nav a").on("click", function(e) {
+        var $page = $(".page-area");
         $(this).parent().addClass("active").siblings().removeClass("active");
+        if ($(this).hasClass("home")) {
+            $page.removeClass("active");
+        }
+        if ($(this).hasClass("p-list")) {
+            $page.addClass("active");
+            $page.load("../html/project-list.html");
+        }
+        $(".gnb-trigger").trigger("click");
+        e.preventDefault();
     });
-    $(document).on("mouseover focusin", ".gnb > ul > li", function() {
-        $(this).addClass("active").siblings().removeClass("active");
-    });
-    $(document).on("focusin", ".gnb .all-menu", function() {
-        $(this).closest(".gnb").find(".active").removeClass("active");
-    });
-    $(document).on("mouseleave", ".gnb > ul", function() {
-        $(this).children().removeClass("active");
-    });
-    $(document).on("click", ".gnb .all-menu", function(e) {
-        $(this).toggleClass("active");
-        if ($(this).hasClass("active")) {
-            $(this).closest(".gnb").addClass("all-open");
+    $(".gnb-trigger").on("click", function(e) {
+        $(this).parent().toggleClass("active");
+        if ($(this).parent().hasClass("active")) {
+            TweenMax.killAll();
+            var tlm2 = new TimelineMax();
+            tlm2.to($(".gnb-trigger .line1"), .6, {
+                y: 13
+            }, "hamburger1").to($(".gnb-trigger .line3"), .6, {
+                y: -13
+            }, "hamburger1").to($(".gnb-trigger .line2"), .2, {
+                delay: .4,
+                opacity: 0
+            }, "hamburger1").to($(".gnb-trigger .line1"), 1, {
+                ease: Elastic.easeOut.config(1, .3),
+                rotation: 45
+            }, "hamburger2").to($(".gnb-trigger .line3"), 1, {
+                ease: Elastic.easeOut.config(1, .3),
+                rotation: -45
+            }, "hamburger2");
         } else {
-            $(this).closest(".gnb").removeClass("all-open");
+            TweenMax.killAll();
+            var tlm2 = new TimelineMax();
+            tlm2.to($(".gnb-trigger .line1"), .4, {
+                rotation: 0
+            }, "hamburger1").to($(".gnb-trigger .line3"), .4, {
+                rotation: 0
+            }, "hamburger1").to($(".gnb-trigger .line2"), .2, {
+                delay: .2,
+                opacity: 1
+            }, "hamburger2").to($(".gnb-trigger .line1"), .6, {
+                ease: Elastic.easeOut.config(1, .3),
+                y: 0
+            }, "hamburger2").to($(".gnb-trigger .line3"), .6, {
+                ease: Elastic.easeOut.config(1, .3),
+                y: 0
+            }, "hamburger2");
         }
         e.preventDefault();
     });
-})();
+});
